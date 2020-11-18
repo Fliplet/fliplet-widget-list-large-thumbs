@@ -1,5 +1,5 @@
 {{#if items.length}}
-<div data-list-thumb-l-id="{{id}}" data-filter-id="{{id}}" data-list-thumb-s-uuid="{{uuid}}" class="list list-thumb-l {{#if swipeToSave}}list-swipe-save{{/if}}">
+<div data-list-thumb-l-id="{{id}}" data-filter-id="{{id}}" data-list-uuid="{{uuid}}" data-list-thumb-l-uuid="{{uuid}}" class="list list-thumb-l {{#if swipeToSave}}list-swipe-save{{/if}}">
   {{#if swipeToSave}}
   <div class="filter-wrapper">
     <ul class="list-save-filter">
@@ -15,7 +15,7 @@
   {{/if}}
   <ul class="list-holder {{#if swipeToSave}}list-swipe{{/if}}">
     {{#each items}}
-    <li class="{{#if linkAction}}linked{{/if}} {{#if imageConf}}image{{else}}no-image{{/if}} {{#if icon}}has-icon{{else}}no-icon{{/if}}" data-thumb-l-item-id="{{id}}">
+    <li class="{{#if linkAction}}linked{{/if}} {{#if imageConf}}has-image image{{else}}no-image{{/if}} {{#if icon}}has-icon{{else}}no-icon{{/if}}" data-thumb-l-item-id="{{id}}">
       <div class="list-image" style="background-color: {{color}};{{#if imageConf}} background-image: url('{{imageConf.url}}'){{/if}}">
         {{#unless imageConf}}
           {{#if icon}}
