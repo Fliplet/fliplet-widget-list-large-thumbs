@@ -30,12 +30,6 @@ Fliplet.Widget.instance('list-thumb-l', function(data) {
     }
   });
 
-  $container.on('click', '.filter-' + data.id, function(event) {
-    var dataset = event.target.dataset;
-
-    $container.toggleClass('saved-list', dataset.filter === '.saved');
-  });
-
   if (data.swipeToSave) {
     ui['swipeSavedList' + $container.attr('data-list-thumb-l-uuid')] = new SwipeSaveList(this, {
       savedListLabel: data.swipeToSaveLabel || 'My list'
