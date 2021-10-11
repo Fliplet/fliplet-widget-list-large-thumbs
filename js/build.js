@@ -2,7 +2,7 @@ window.ui = window.ui || {};
 Fliplet.Widget.instance('list-thumb-l', function(data) {
   var $container = $(this);
 
-  $container.translate({ swipeToSaveLabel: data.swipeToSaveLabel || T('widgets.list.largeThumbs.listName') });
+  $container.translate({ swipeToSaveLabel: data.swipeToSaveLabel || T('widgets.list.largeThumbs.defaultListName') });
 
   function authenticateImages() {
     _.forEach(data.items, function(item) {
@@ -34,7 +34,7 @@ Fliplet.Widget.instance('list-thumb-l', function(data) {
 
   if (data.swipeToSave) {
     ui['swipeSavedList' + $container.attr('data-list-thumb-l-uuid')] = new SwipeSaveList(this, {
-      savedListLabel: data.swipeToSaveLabel || T('widgets.list.largeThumbs.listName')
+      savedListLabel: data.swipeToSaveLabel || T('widgets.list.largeThumbs.defaultListName')
     });
   }
 
