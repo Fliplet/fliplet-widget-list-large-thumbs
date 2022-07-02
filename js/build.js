@@ -1,6 +1,19 @@
 window.ui = window.ui || {};
 Fliplet.Widget.instance('list-thumb-l', function(data) {
   var $container = $(this);
+  var _this = this;
+
+  var swipeToSaveLabel = data.swipeToSaveLabel || T('widgets.list.largeThumbs.defaultListName');
+
+  Fliplet().then(function() {
+    $container.translate({ swipeToSaveLabel: swipeToSaveLabel });
+
+    if (data.swipeToSave) {
+      ui['swipeSavedList' + $container.attr('data-list-thumb-l-uuid')] = new SwipeSaveList(_this, {
+        savedListLabel: swipeToSaveLabel
+      });
+    }
+  });
 
   function authenticateImages() {
     _.forEach(data.items, function(item) {
@@ -29,12 +42,6 @@ Fliplet.Widget.instance('list-thumb-l', function(data) {
       Fliplet.Navigate.to(itemData.linkAction);
     }
   });
-
-  if (data.swipeToSave) {
-    ui['swipeSavedList' + $container.attr('data-list-thumb-l-uuid')] = new SwipeSaveList(this, {
-      savedListLabel: data.swipeToSaveLabel || 'My list'
-    });
-  }
 
   Fliplet().then(authenticateImages);
 });
