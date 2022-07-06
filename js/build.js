@@ -3,9 +3,9 @@ Fliplet.Widget.instance('list-thumb-l', function(data) {
   var $container = $(this);
   var _this = this;
 
-  var swipeToSaveLabel = data.swipeToSaveLabel || T('widgets.list.largeThumbs.defaultListName');
-
   Fliplet().then(function() {
+    var swipeToSaveLabel = data.swipeToSaveLabel || T('widgets.list.largeThumbs.defaultListName');
+
     $container.translate({ swipeToSaveLabel: swipeToSaveLabel });
 
     if (data.swipeToSave) {
