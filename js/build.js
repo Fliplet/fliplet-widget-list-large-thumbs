@@ -16,8 +16,8 @@ Fliplet.Widget.instance('list-thumb-l', function(data) {
   });
 
   function authenticateImages() {
-    _.forEach(data.items, function(item) {
-      if (!_.get(item, 'imageConf.url') || !Fliplet.Media.isRemoteUrl(item.imageConf.url)) {
+    FlipletListLargeThumbsUtils.forEach(data.items, function(item) {
+      if (!FlipletListLargeThumbsUtils.get(item, 'imageConf.url') || !Fliplet.Media.isRemoteUrl(item.imageConf.url)) {
         return;
       }
 
@@ -34,11 +34,11 @@ Fliplet.Widget.instance('list-thumb-l', function(data) {
       return;
     }
 
-    var itemData = _.find(data.items, {
+    var itemData = FlipletListLargeThumbsUtils.find(data.items, {
       id: $(this).data('thumb-l-item-id')
     });
 
-    if (_.get(itemData, 'linkAction') && !_.isEmpty(itemData.linkAction)) {
+    if (FlipletListLargeThumbsUtils.get(itemData, 'linkAction') && !FlipletListLargeThumbsUtils.isEmpty(itemData.linkAction)) {
       Fliplet.Navigate.to(itemData.linkAction);
     }
   });
